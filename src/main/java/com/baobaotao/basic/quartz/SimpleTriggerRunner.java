@@ -8,7 +8,11 @@ import org.quartz.Scheduler;
 import org.quartz.SchedulerFactory;
 import org.quartz.SimpleTrigger;
 import org.quartz.impl.StdSchedulerFactory;
-
+/**
+ * 使用SimpleTrigger
+ * @author UCMED
+ *
+ */
 public class SimpleTriggerRunner {
 	public static void main(String[] args) {
 		try {
