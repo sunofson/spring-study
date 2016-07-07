@@ -12,16 +12,16 @@ import org.quartz.impl.StdSchedulerFactory;
 public class SimpleTriggerRunner {
 	public static void main(String[] args) {
 		try {
-			//¢Ù ´´½¨ JobDetail ÊµÀı£¬ Ö¸¶¨SimpleJob£¬×éÃûÎª£ºjgroup1£¬ Ãû³ÆÎª:job1_1 
+			//â‘  åˆ›å»º JobDetail å®ä¾‹ï¼Œ æŒ‡å®šSimpleJobï¼Œç»„åä¸ºï¼šjgroup1ï¼Œ åç§°ä¸º:job1_1 
 			JobDetail jobDetail = new JobDetail("job1_1", "jgroup1", SimpleJob.class);
 			
 			SimpleTrigger simpleTrigger = new SimpleTrigger("trigger1_1","tgroup1");
-			//¢Ú-1 Í¨¹ıSimpleTrigger ¶¨Òåµ÷¶È¹æÔò: ÂíÉÏÆô¶¯£¬Ã¿2ÃëÔËĞĞÒ»´Î£¬ÔËĞĞ100´Î
+			//â‘¡-1 é€šè¿‡SimpleTrigger å®šä¹‰è°ƒåº¦è§„åˆ™: é©¬ä¸Šå¯åŠ¨ï¼Œæ¯2ç§’è¿è¡Œä¸€æ¬¡ï¼Œè¿è¡Œ100æ¬¡
 //			simpleTrigger.setStartTime(new Date());
 //			simpleTrigger.setRepeatInterval(2000);
 //			simpleTrigger.setRepeatCount(100);
 			
-			//¢Ú-2 µ÷¶È¹æÔò: 6Ãëºó¿ªÊ¼ÔËĞĞ
+			//â‘¡-2 è°ƒåº¦è§„åˆ™: 6ç§’åå¼€å§‹è¿è¡Œ
 			
 			Calendar c = Calendar.getInstance();
 			c.setTimeInMillis(System.currentTimeMillis() + 1000 * 7L); 
@@ -30,10 +30,10 @@ public class SimpleTriggerRunner {
 			simpleTrigger.setRepeatInterval(2000);
 			simpleTrigger.setRepeatCount(100);
 			
-			//¢Û Í¨¹ı SchedulerFactory »ñÈ¡Ò»¸öµ÷¶ÈÆ÷ÊµÀı
+			//â‘¢ é€šè¿‡ SchedulerFactory è·å–ä¸€ä¸ªè°ƒåº¦å™¨å®ä¾‹
 			SchedulerFactory schedulerFactory = new StdSchedulerFactory();
 			Scheduler scheduler = schedulerFactory.getScheduler();
-			//¢Ü ×¢²á²¢½øĞĞµ÷¶È
+			//â‘£ æ³¨å†Œå¹¶è¿›è¡Œè°ƒåº¦
 			scheduler.scheduleJob(jobDetail, simpleTrigger);
 			scheduler.start();
 			
