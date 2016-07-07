@@ -21,11 +21,11 @@ public class SimpleTriggerRunner {
 //			simpleTrigger.setRepeatInterval(2000);
 //			simpleTrigger.setRepeatCount(100);
 			
-			//②-2 调度规则: 6秒后开始运行
-			
+			//②-2 调度规则: 2秒后开始运行,没两秒运行一次，10秒后停止运行，但是虚拟机不关闭
+			long t = System.currentTimeMillis();
 			Calendar c = Calendar.getInstance();
-			c.setTimeInMillis(System.currentTimeMillis() + 1000 * 7L); 
-			simpleTrigger.setStartTime(new Date( System.currentTimeMillis() + 6000L));
+			c.setTimeInMillis(t + 1000 * 10L); 
+			simpleTrigger.setStartTime(new Date( t + 2000L));
 			simpleTrigger.setEndTime(c.getTime());
 			simpleTrigger.setRepeatInterval(2000);
 			simpleTrigger.setRepeatCount(100);
