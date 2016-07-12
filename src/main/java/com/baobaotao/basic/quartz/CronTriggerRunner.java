@@ -1,7 +1,5 @@
 package com.baobaotao.basic.quartz;
 
-import java.text.ParseException;
-
 import org.quartz.CronExpression;
 import org.quartz.CronTrigger;
 import org.quartz.JobDetail;
@@ -14,7 +12,7 @@ public class CronTriggerRunner {
 		try {
 			JobDetail jDetail = new JobDetail("job1_2", "jgroup1", SimpleJob.class);
 			CronTrigger cronTrigger = new CronTrigger("trigger1_2", "tgroup1");
-			CronExpression cronExpression = new CronExpression("0/5 * * * * ?");
+			CronExpression cronExpression = new CronExpression("0/5 * * * * ?"); //每5s运行一次
 			cronTrigger.setCronExpression(cronExpression);
 			
 			SchedulerFactory schedulerFactory = new StdSchedulerFactory();
