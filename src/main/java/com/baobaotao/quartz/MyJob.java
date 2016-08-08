@@ -10,7 +10,7 @@ public class MyJob implements Job{
 
 	@Override
 	public void execute(JobExecutionContext context) throws JobExecutionException {
-		JobDataMap jobDataMap = context.getJobDetail().getJobDataMap();
+		JobDataMap jobDataMap = context.getJobDetail().getJobDataMap(); //获取JobDetail关联的JobDataMap
 		String size = (String) jobDataMap.get("size");
 		ApplicationContext ctx = (ApplicationContext) jobDataMap.get("applicationContext");
 		System.out.println("size" + size);
